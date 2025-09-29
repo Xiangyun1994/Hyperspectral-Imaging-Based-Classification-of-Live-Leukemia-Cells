@@ -1,0 +1,10 @@
+function [trainData, valData, trainLabels, valLabels] = splitData(data, labels, trainRatio)
+    numData = numel(labels);
+    idx = randperm(numData); 
+    numTrain = round(numData * trainRatio);
+    
+    trainData = data(idx(1:numTrain));
+    valData = data(idx(numTrain+1:end));
+    trainLabels = labels(idx(1:numTrain));
+    valLabels = labels(idx(numTrain+1:end));
+end
